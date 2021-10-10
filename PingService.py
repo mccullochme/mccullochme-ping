@@ -3,9 +3,13 @@ import requests
 from requests.auth import HTTPDigestAuth
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'hard to guess string'
 
-@app.route('/')
-def index:
+bootstrap = Bootstrap(app)
+moment = Moment(app)
+
+@app.route('/', methods=[GET, POST])
+def index():
     return render_template("index.html")
 
 @app.route('/ping', methods=[GET])
@@ -13,4 +17,7 @@ def ping():
     #create url
     #make request
     #return JSON payload with time request took
+
+if __name__ == "__main__":
+    app.run(debug=True)
 
