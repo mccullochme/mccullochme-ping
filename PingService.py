@@ -17,7 +17,4 @@ def ping():
     #create url
     #make request
     #return JSON payload with time request took
-
-if __name__ == "__main__":
-    app.run(debug=True)
-
+    return '<h1> hello <h1>'
