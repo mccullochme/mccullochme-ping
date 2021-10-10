@@ -2,7 +2,7 @@ import os
 from flask import Flask, render_template, jsonify
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
-from flask_httpauth import HTTPDigestAuth
+from Flask_HTTPAuth import HTTPDigestAuth
 
 
 app = Flask(__name__)
