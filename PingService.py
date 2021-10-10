@@ -17,9 +17,13 @@ def index():
 def ping():
     url = 'https://mccullochme-pong.herokuapp.com/pong'
     request = requests.get(url, auth=HTTPDigestAuth('vcu', 'rams'))
-    reply = request.jsonify()
+    
     return '<h1> sent a request</h1>'
 
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
 
 
 
