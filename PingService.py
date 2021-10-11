@@ -4,7 +4,7 @@ from flask import Flask, render_template, jsonify, request
 from flask_bootstrap import Bootstrap
 import requests
 from requests.auth import HTTPDigestAuth as sampleAuth
-from flask_httpauth import HTTPDigestAuth
+
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
