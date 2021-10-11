@@ -3,7 +3,7 @@ import json
 from flask import Flask, render_template, jsonify, request
 from flask_bootstrap import Bootstrap
 import requests
-from flask_httpauth import HTTPDigestAuth
+from requests.auth import HTTPDigestAuth
 
 
 app = Flask(__name__)
