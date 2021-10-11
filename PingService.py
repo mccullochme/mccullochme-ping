@@ -16,7 +16,7 @@ def index():
 @app.route('/ping', methods=['GET'])
 def ping():
     url = 'https://mccullochme-pong.herokuapp.com/pong'
-    request = requests.get(url, auth=HTTPDigestAuth('vcu', 'rams'))
+    request = requests.get(url, auth=HTTPDigestAuth('vcu', 'rams'), verify=required)
     time = request.elapsed.total_seconds()
     return render_template("timeReturn.html", time=time)
 
