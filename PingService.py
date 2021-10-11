@@ -3,12 +3,13 @@ import json
 from flask import Flask, render_template, jsonify, request
 from flask_bootstrap import Bootstrap
 import requests
-from requests.auth import HTTPDigestAuth
+from requests.auth import HTTPDigestAuth as sampleAuth
+from flask_httpauth import HTTPDigestAuth
 
+basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'hard to guess string'
-
 auth = HTTPDigestAuth()
 
 users = {
@@ -29,9 +30,10 @@ def index():
 @auth.login_required()
 def ping():
     url = 'https://mccullochme-pong.herokuapp.com/pong'
-    request = requests.get(url, auth=HTTPDigestAuth('vcu', 'rams'))
+    request = requests.get(url, auth=sampleAuth('vcu', 'rams'))
     time = request.elapsed.total_seconds()
-    return render_template("timeReturn.html", time=time)
+    t = jsonify(pingpong_t=(time))
+    return t.json, 201
 
 
 if __name__ == "__main__":
